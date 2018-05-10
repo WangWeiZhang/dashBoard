@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>second</title>
+    <!-- setting_html 设置根元素的这个js文件需要提前加载 不然会导致页面抖动 -->
+    <script type="text/javascript" src="js/setting_html.js"></script>
+    <link href="css/second/second.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="js/d3/d3.js"></script>
+	<script type="text/javascript" src="js/second/second.js"></script>
+	<script type="text/javascript" src="js/second/second_chart.js"></script>
+    <script type="text/javascript" src="js/echart/echarts-all.js"></script>
+	<script type="text/javascript" src="js/echart/echarts.js"></script>
+	<script type="text/javascript" src="js/second/index.js"></script>
+	<script type="text/javascript" src="js/second/second_font_setting.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var config = {
+					"basePath" : "http://xiaole.lenovo.com/dashBoard"
+			};
+			second.register(config);
+		});
+	</script>
+</head>
+<body>
+    <div id="out_box">
+        <!--头部组件开始-->
+        <div id="header">
+        	<input type="hidden" value="0" id="dataType">
+            <div class="header_title"><p>Lenovo Intelligent Services</p><p>UTC +8</p></div>
+            
+            <div class="header_nav_out">
+            <ul class="header_nav">
+                <li class="inactive"><a href="javascript:second.change_type(2)">24 Hours</a></li>
+				<li class="active"><a href="javascript:second.change_type(0)">7 Days</a></li>
+				<li class="inactive"><a href="javascript:second.change_type(1)">13 Weeks</a></li>
+				<li class="inactive"><a href="javascript:second.change_type(3)">12 Months</a></li>
+            </ul>
+            </div>
+        </div>
+        <!--头部组件结束-->
+
+        <div id="main">
+
+        <!--整体左面部分开始-->
+            <div class="left">
+
+            <!--九宫格左上部分开始-->
+                <div class="left_top">
+                    <div class="left_top_title left_top_title1">
+                        <h4>Multimedia Chat</h4><span id="month"></span>
+                    </div>
+                    <div class="left_top_main">
+                        <div class="left_top_center">
+                            <div class="le_to_cen_baoguo">
+                            	<h4 id="totalRate"></h4><p>dialogues use multimedia<br/>(including voice, image and video)</p>
+                       		</div>
+                        </div>
+                        <ul id="playList">
+                            <li><br/><span class="circle"></span><span class="small"></span></li>
+                            <li><br/><span class="circle circle_second"></span><span class="small"></span></li>
+                            <li><br/><span class="circle circle_third"></span><span class="small"></span></li>
+                        </ul>
+                        
+                        <div class="put_text">
+<!-- 	                        <div class="input_output"> -->
+<!-- 	                            <span>Input</span><span class="padding_span">Output</span> -->
+<!-- 	                        </div> -->
+	                        <div class="line_img">
+	                        	<div class="line_img_one">
+	                                <p id="borderNone1">
+										<span>Input</span> 
+	                                </p>
+	                                <div class="Img_inoc_media">.</div>
+	                                <p id="borderNone2">
+										<span>Output</span>
+	                                </p>
+	                            </div>
+	                            <div class="line_img_one">
+	                                <p>
+										<span id = "text_span_one"></span> 
+	                                </p>
+	                                <div class="Img_inoc_media Img_inoc_media_one">.</div>
+	                                <p>
+										<span id = "text_span_two"></span>
+	                                </p>
+	                            </div>
+	                            <div class="line_img_two">
+	                                <p>
+	                                	<span id = "voice_span_one"></span>
+	                                	
+	                                </p>
+	                                <div class="Img_inoc_media Img_inoc_media_two">.</div>
+	                                <p>
+	                                	<span id = "voice_span_two"></span>
+	                                </p>
+	                            </div>
+	                            <div class="line_img_three">
+	                                <p>
+		                                <span id = "image_span_one"></span>
+		                                
+	                                </p>
+	                                <div class="Img_inoc_media Img_inoc_media_three">.</div>
+	                                <p>
+		                                <span id = "image_span_two"></span>
+	                                </p>
+	                            </div>
+	                            <div class="line_img_four">
+	                                <p>
+		                                <span id = "video_span_one"></span>
+	                                </p>
+	                                <div class="Img_inoc_media Img_inoc_media_four">.</div>
+	                                <p>
+		                                <span id = "video_span_two"></span>
+	                                </p>
+	                            </div>
+	                        </div>
+                        </div>
+                    </div>
+                </div>
+            <!--九宫格左上部分结束-->
+
+            <!--九宫格左下部分开始-->
+                <div class="left_bottom">
+                    <div class="left_top_title left_top_title2">
+                        <h4>Customer Emotion</h4><span id="circleTime"></span>
+                    </div>
+                    <div class="small_circle_box">
+                        <div class="left_bottom_top">
+                            <p>Positive Emotion Improved</p>
+                            <h4 id="rise_rate"></h4>
+                        </div>
+                        <div class="left_bottom_circle" id="circle_div">
+<!--                             <div class="circle_out" style="flex:1;"> -->
+<!--                                 <p>positive</p> -->
+<!--                                 <div class="circle_inner"  > -->
+<!--                                     <div class="circle_inner_text" style="background:#ff8899; border-radius:200px; width:60%; height:60%;position:absolute; left:0;right:0; top:0;bottom:0;margin:auto;" > -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+
+
+<!--                                 <div class="circle_inner" > -->
+<!--                                     <div class="circle_inner_text" style="background:#ff8899; border-radius:200px; width:60%; height:60%;position:absolute; left:0;right:0; top:0;bottom:0;margin:auto;"> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div style="width:0px; height:0px; clear: both;"></div> -->
+<!--                             <div class="circle_out" style="flex:1;"> -->
+<!--                                 <p>positive</p> -->
+<!--                                 <div class="circle_inner" style="background:rgba(120,167,67,1);"> -->
+<!--                                     <div class="circle_inner_text" style="background:#78A743; border-radius:200px; width:60%; height:60%;position:absolute; left:0;right:0; top:0;bottom:0;margin:auto;"> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+
+
+<!--                                 <div class="circle_inner" style="background:rgba(120,167,67,1);"> -->
+<!--                                     <div class="circle_inner_text" style="background:#78A743; border-radius:200px; width:60%; height:60%;position:absolute; left:0;right:0; top:0;bottom:0;margin:auto;"> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div style="width:0px; height:0px; clear: both;"></div> -->
+<!--                             <div class="circle_out" style="flex:1;"> -->
+<!--                                 <p>positive</p> -->
+<!--                                 <div class="circle_inner"> -->
+<!--                                     <div class="circle_inner_text" style="background:#248BD7; border-radius:200px; width:60%; height:60%;position:absolute; left:0;right:0; top:0;bottom:0;margin:auto;"> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+
+<!--                                 <div class="circle_inner"> -->
+<!--                                     <div class="circle_inner_text" style="background:#248BD7; border-radius:200px; width:60%; height:60%;position:absolute; left:0;right:0; top:0;bottom:0;margin:auto;"> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+                        </div>
+                        
+                        
+                        <!--<div class="left_bottom_circle">-->
+                            <!--<p>positive</p>-->
+                            <!--<div style="width:5.5em;height:5.5em; border-radius:200px; background:rgba(255,255,0,0.2); position:relative; " >-->
+                                <!--<div style="background:#ff8899; border-radius:200px; width:60%; height:60%;position:absolute; left:0;right:0; top:0;bottom:0;margin:auto;"></div>-->
+                            <!--</div>-->
+                            <!--<div style="width:5.5em;height:5.5em; border-radius:200px; background:rgba(255,255,0,0.2); position:relative; " >-->
+                                <!--<div style="background:#ff8899; border-radius:200px; width:60%; height:60%;position:absolute; left:0;right:0; top:0;bottom:0;margin:auto;"></div>-->
+                            <!--</div>-->
+                            <!--<div style="width:0px; height:0px; clear: both;"></div>-->
+                            <!--<p>positive</p>-->
+                            <!--<div style="width:5.5em;height:5.5em; border-radius:200px; background:rgba(255,255,0,0.2); position:relative; " >-->
+                                <!--<div style="background:#ff8899; border-radius:200px; width:60%; height:60%;position:absolute; left:0;right:0; top:0;bottom:0;margin:auto;"></div>-->
+                            <!--</div>-->
+                            <!--<div style="width:5.5em;height:5.5em; border-radius:200px; background:rgba(255,255,0,0.2); position:relative; " >-->
+                                <!--<div style="background:#ff8899; border-radius:200px; width:60%; height:60%;position:absolute; left:0;right:0; top:0;bottom:0;margin:auto;"></div>-->
+                            <!--</div>-->
+                            <!--<div style="width:0px; height:0px; clear: both;"></div>-->
+                            <!--<p>positive</p>-->
+                            <!--<div style="width:5.5em;height:5.5em; border-radius:200px; background:rgba(255,255,0,0.2); position:relative; " >-->
+                                <!--<div style="background:#ff8899; border-radius:200px; width:60%; height:60%;position:absolute; left:0;right:0; top:0;bottom:0;margin:auto;"></div>-->
+                            <!--</div>-->
+                            <!--<div style="width:5.5em;height:5.5em; border-radius:200px; background:rgba(255,255,0,0.2); position:relative; " >-->
+                                <!--<div style="background:#ff8899; border-radius:200px; width:60%; height:60%;position:absolute; left:0;right:0; top:0;bottom:0;margin:auto;"></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+                    </div>
+					
+
+
+                </div>
+            <!--九宫格左下部分结束-->
+            </div>
+        <!--整体左面部分结束-->
+
+
+        <!--整体中间部分开始-->
+            <div class="center">
+            <!--九宫格中间上部分开始-->
+                <div class="center_top">
+                    <div class="left_top_title left_top_title3">
+                        <h4>Resolution Rate</h4><span id="startTime"></span>
+                    </div>
+                    <div class="left_top_content">
+                        <ul>
+                            <li>
+                                <span class="small_span">Solved Cases</span>
+                                <h4><span class="one_span" id="solvedNum"> </span><span id="soledWave" class="tow_span four_span"></span></h4>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <span class="small_span">Unsolved Cases</span>
+                                <h4><span id="unsolvedNum" class="one_span" > </span><span id="unsolvedWave" class="tow_span"></span></h4>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <span class="small_span">Resolution Rate</span>
+                                <h4><span id="solvingNum" class="one_span"></span><span id="solvingWave" class="tow_span"></span></h4>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            <!--九宫格中间上部分结束-->
+
+            <!--九宫格中间中心部分开始-->
+                <div class="center_middle">
+                    <div id="line"></div>
+                    <div id="lend_bar" >
+                    	<div class="bar_box_out">
+                    		<div class="bcoguo_box">
+                    			<span class="bar_legend_circle Solved_Cases_Count"></span> <span class="bar_legend_text">Solved Cases Count</span>
+                    		</div>
+                    	</div>
+                    	<div class="bar_box_out">
+							<div class="bcoguo_box">
+							    <div><span class="bar_legend_circle Unsolved_Cases_Count"></span> <span class="bar_legend_text">Unsolved Cases Count</span></div>
+							</div>
+						</div>
+                    	<div class="bar_box_out">
+							<div class="bcoguo_box">
+							    <div class="bg_icon1"><span></span> <span class="bar_legend_text">Resolution Rate</span></div>
+							</div>
+						</div>
+                    	<div class="bar_box_out">
+                    		<div class="bcoguo_box">
+							    <div class="bg_icon2"><span></span> <span class="bar_legend_text">48 Hours Repeat Rate</span></div>
+							</div>
+                    	</div>
+                    </div>
+                    
+                    
+                </div>
+            <!--九宫格中间中心部分结束-->
+
+            <!--九宫格中间下部分开始-->
+            	<div class="left_top_title left_top_title2" style="height: 3.948%;">
+                    <h4>Issue Distribution</h4><span id="fanye_titkle"></span>
+                </div>
+                <div class="center_bottom" id="center_bottom">
+                    <div class="center_bottom_content">
+                        <div class="center_bottom_inner">
+                            <p class="c_b_c_bg"></p>
+
+                            <div class="c_b_c_div">
+                                <h3></h3>
+                                <ul>
+                                    <li class="scale_li"></li>
+                                    <li class="place_li"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center_bottom_content">
+                        <div class="center_bottom_inner">
+                            <p class="c_b_c_bg"></p>
+
+                            <div class="c_b_c_div">
+                                <h3></h3>
+                                <ul>
+                                    <li class="scale_li"></li>
+                                    <li class="place_li"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center_bottom_content">
+                        <div class="center_bottom_inner">
+                            <p class="c_b_c_bg"></p>
+
+                            <div class="c_b_c_div">
+                                <h3></h3>
+                                <ul>
+                                    <li class="scale_li"></li>
+                                    <li class="place_li"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center_bottom_content">
+                        <div  class="center_bottom_inner">
+                            <p class="c_b_c_bg"></p>
+
+                            <div class="c_b_c_div">
+                                <h3></h3>
+                                <ul>
+                                    <li class="scale_li"></li>
+                                    <li class="place_li"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center_bottom_content">
+                        <div  class="center_bottom_inner">
+                            <p class="c_b_c_bg"></p>
+
+                            <div class="c_b_c_div">
+                                <h3></h3>
+                                <ul>
+                                    <li class="scale_li"></li>
+                                    <li class="place_li"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center_bottom_content">
+                        <div  class="center_bottom_inner">
+                            <p class="c_b_c_bg"></p>
+
+                            <div class="c_b_c_div">
+                                <h3></h3>
+                                <ul>
+                                    <li class="scale_li"></li>
+                                    <li class="place_li"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            <!--九宫格中间下部分结束-->
+            </div>
+        <!--整体中间部分结束-->
+
+
+        <!--整体右面部分开始-->
+            <div class="right">
+            <!--九宫格右上部分开始-->
+                <div class="right_top">
+                    <div class="left_top_title left_top_title4">
+                        <h4>Knowledge Graph</h4><span id="endTime"></span>
+                    </div>
+					<div class="right_top_content">
+						<ul>
+							<li>
+                                <span class="right_small_span" id="knowladge_date"><!-- Using Counts Last 7 Days --></span>
+                                <h4><span id="usingNum" class="one_span"></span><span id="usingWave" class="tow_span three_span" ></span></h4>
+                            </li>
+						</ul>
+						<ul>
+							<li>
+                                <span class="right_small_span">Average Using Counts Per Case</span>
+                                <h4><span id="averageNum" class="one_span"></span><span id="averageWave" class="tow_span"></span></h4>
+                            </li>
+						</ul>
+					</div>                    
+
+                    <div id="wave_div">
+					</div>
+                </div>
+            <!--九宫格右上部分结束-->
+
+            <!--九宫格右中间部分开始-->
+                <div class="right_middle">
+                    <div class="using_echart_box" >
+						<div class="using_echart_title">Using Counts By Category</div>
+						<div id="using_echart_div" class="img3"></div>
+					</div>
+				
+					<div class="using_legend_box">
+						<div class="using_legend_title">
+                            <span>Total</span>
+                            <h4 id="using_total"></h4>
+                        </div>
+						<div class="using_legend" id="using_legend_div">
+                            <div class="legend_row">
+                                <span class="legend_circle"></span>
+                                <span class="legend_text"></span>
+                                <p class="legend_number"></p>
+                            </div>
+                            <div class="legend_row">
+                                <span class="legend_circle"></span>
+                                <span class="legend_text"></span>
+                                <p class="legend_number"></p>
+                            </div>
+                            <div class="legend_row">
+                                <span class="legend_circle"></span>
+
+                                <span class="legend_text"></span>
+                                <p class="legend_number"></p>
+                            </div>
+                            <div class="legend_row">
+                                <span class="legend_circle"></span>
+
+                                <span class="legend_text"></span>
+                                <p class="legend_number"></p>
+                            </div>
+                            <div class="legend_row">
+                                <span class="legend_circle"></span>
+
+                                <span class="legend_text"></span>
+                                <p class="legend_number"></p>
+                            </div>
+                        </div>
+					</div>
+                </div>
+            <!--九宫格右中间部分结束-->
+
+            <!--九宫格右下部分开始-->
+                <div class="right_bottom">
+                	<div class="right_bottom_title">
+						<div class="shang1"><span>Total KG Number</span></div>
+                		<div class="right_list_title"><p>Top QA Knowledge</p></div>
+                	</div>
+                    <div class="right_bottom_left">
+                        <div class="shang" >
+                            <div>
+                                <h4 id="shang_number"></h4>
+                            </div>
+                        </div>
+                        <div class="xia">
+                            <div>
+                                <span id="shang_title">New KG Last 7 Days</span>
+                                <h4 id="shang_number_second"></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right_bottom_right">
+                        <div>
+                            <ol id="right_bottom_right_list">
+                               
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            <!--九宫格右下部分结束-->
+            </div>
+        <!--整体右面部分结束-->
+
+        </div>
+    </div>
+</body>
+</html>

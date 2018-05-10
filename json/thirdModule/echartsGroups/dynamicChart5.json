@@ -1,0 +1,13 @@
+{
+	"data":{
+		"chartsCount":[
+			7
+		],
+		"chartsTime":[
+			"6am"
+		]
+	},
+	"error_code":"000000",
+	"msg":"",
+	"status":"success"
+}

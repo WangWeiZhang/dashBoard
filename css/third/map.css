@@ -1,0 +1,619 @@
+/* 地图部分 and 实时对话 层叠样式表 */
+#map_chart svg{
+	transform:scale(1);
+/* 	transform-origin:1000px 300px; */
+	/* transform-origin: top; */
+}
+
+.legend {
+    position: absolute;
+    left: 1.067rem;
+    top: 68.6%;
+    /* width: 5.333rem; */
+    width: 7.333rem;
+    height: auto;
+    color: #fff;
+    z-index: 2;
+}
+
+@media screen and (max-width: 1367px){
+	.legend {
+    	width: 8rem;
+	}	
+}
+
+
+span.legendTitle{
+	display: inline-block;
+    transform: scale(0.9);
+    transform-origin: left;
+	font-family: ".HelveticaNeueLTStd-Light";
+    letter-spacing: 0.7px;
+    font-size: 0.6rem;
+    color: #a6a6ab;
+    opacity:0;
+}
+
+.legend_col {
+    position: relative;
+    width: 100%;
+    top: 80%;
+    height: 0.373rem;
+    display: table;
+    margin-top: 0.1rem;
+}
+
+.legend_tip {
+    margin-top: 0.467rem;
+    position: absolute;
+    top: 80%;
+    width: 100%;
+    height: auto;
+    display: table;
+}
+
+.legend_tip_text{
+	display: table-row;
+    font-family: ".HelveticaNeueLTStd-Light";
+    color: #717079;
+    font-size:0.6rem;
+}
+
+#legend_first , #legend_center , #legend_last{
+	display:table-cell;
+	text-align: left;    
+	transform: scale(0.8);
+}
+
+#legend_first {
+	transform-origin: left;
+}
+
+#legend_center {
+	transform-origin: left;
+	text-align: right;
+}
+
+#legend_last {
+	transform-origin: right;
+    text-align: right;
+}
+
+.boxboxbox div{
+/* 	display:none; */
+opacity:0;
+}
+
+/* 对话框  */
+.dialog-box{
+    width: 978px;
+    width: 68.238%;
+    height: 638px;
+    height: 84.55%;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.dialog-box-title{
+	width: 436px;
+    width: 44.581%;
+    height: 36px;
+    height: 5.643%;
+    display: flex;
+    justify-content: space-between;
+    background: #06B08C;
+    align-items: center;
+    font-size: 0.64rem;
+    padding: 0 0.693rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-family: ".HelveticaNeueLTStd-MdP4";
+    opacity:0;
+    position: relative;
+    z-index: 1;
+}    
+.dialog-box-title h3{
+	font-size: 0.853rem;
+    font-weight: inherit;
+	/* flex:2; */
+    text-align:center;
+    font-family: ".HelveticaNeueLTStd-Thin";
+    letter-spacing: 1px;
+}
+
+.dialog-box-title p{
+    font-family: ".HelveticaNeueLTStd-Thin";
+    letter-spacing: 1px;
+}
+.dialog-box-title p#dialogCountry{
+	flex:1.5; text-align:left;
+}
+.dialog-box-title p#dialogChannel{
+	flex:1.5; text-align:right;
+}
+.dialog-text-box{
+    width: 436px;
+    width: 44.581%;
+/*     height: 364px; */
+/*     height: 57.054%; */
+    background:rgba(255, 255, 255, 0.85);
+    color: #000;
+    /* padding: 0.96rem 1.227rem 1.227rem 1.39rem; */
+    overflow: auto;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+	opacity:0;
+	position: relative;
+    z-index: 0;
+}
+.mapMessageInner{
+	width:100%;
+}
+.mapMessageInner:after{
+	content: "\0020";
+	display: block;
+	height: 0;
+	clear: both;
+}
+.bg-while-bottom{
+	width: 100%;
+    height: 5%;
+    background: linear-gradient(rgba(255,255,255,1),rgba(255,255,255,1));
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.maplineFille{
+    width: 436px;
+    width: 100%;
+    height: 1.07rem;
+    position: absolute;
+    top: 100%;
+    z-index: 2;
+    background: rgb(50, 49, 62);
+    background: linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0));
+    left: 0px;
+    opacity:0;
+}
+
+.bg-while-top{
+	width: 100%;
+    height: 2.5%;
+    background: #fff;
+}
+
+/* 滚动条的背景部分 */
+::-webkit-scrollbar 
+{
+	width: 0px;
+/* 	background:#ccc; */
+}
+/* 垂直滚动条的滑动块 
+         定义滑块
+*/
+::-webkit-scrollbar-thumb:vertical{ 
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color:rgba(18,129,201,0.8);
+}
+
+
+/* 机器人message消息框 */
+
+.robot-firev{
+	width:100%;
+	height:auto;
+	min-height: 34px;
+}
+.robot-firev:after{
+	content: "\0020";
+	display: block;
+	height: 0;
+	clear: both;
+}
+.robot-firev + .robot-firev .robot-inner p.chatIcon {
+    background: url("");
+}
+.robot-firev + .robot-firev .robot-inner span.masBg{
+    background: url("");
+}
+.robot-firev + .robot-firev .robot-inner p.spText{
+	border-top-left-radius:5px;
+}
+.robot-inner{
+	min-height: 34px;
+	display: flex;
+	opacity:0;
+    -moz-transition: all 1s ease-in;
+    -webkit-transition: all 1s ease-in;
+    -o-transition: all 1s ease-in;
+    transition: all 1s ease-in;
+}
+.robot-inner p.chatIcon {
+    width: 8.88%;
+    background: url(../../images/thirdimg/channel1.png) no-repeat top center;
+    background-size: 100% auto;
+}
+.robot-inner .messageDiv {
+    width: 91.2%;
+    display:none;
+    transform-origin:left 0.853rem
+}
+.masBg {
+	display:inline-block;
+    width: 0.53rem;
+    height: 0.53rem;
+    background: url(../../images/thirdimg/messageSan.png) no-repeat top right;
+    margin-top: 0.853rem;
+    margin-left: 0px;
+    background-size: 8px 8px;
+    float: left;
+    
+    /* 后添加的 */
+    position: absolute;
+    margin-top: 0;
+    top: 0;
+    left: -0.5rem;
+}
+
+.masBgSelect{
+	opacity:0;
+}
+.robot-inner p.spText , .robot-inner div.commentTextMap {
+    /* max-width: 77.51%; */
+    max-width: 84.91%;
+    float: left;
+    margin: 0.853rem 0 0 0;
+    background: #3672a8 100%;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    padding: 0.32rem 0.427rem 0.213rem 0.64rem;
+    padding: 0.533rem 0.533rem 0.427rem 0.533rem;
+    font-size: 0.853rem;
+    color: #fff;
+    letter-spacing:1px;
+    position: relative;
+    margin-left: 0.53rem;
+    
+    line-height: 1.28rem;
+    line-height: 1.173rem;
+    font-family: '.HelveticaNeueLTStd-Thin';
+}
+
+span.rabotSpan {
+    opacity: 0;
+}
+
+.robot-inner p.spText video{
+	width: 100%;  
+	opacity:0;   
+	height: 200px; 
+	border-radius: 5px;
+}
+
+/*机器人下 select 选项卡样式*/
+.robot-inner .selectTab{
+    margin: 0.853rem 0 0 0.53rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 82.51%;
+    max-width:84.91%;
+    font-family: ".HelveticaNeueLTStd-Roman";
+    border: 2px solid #248BD7;
+    border-radius:5px;
+    transform-origin:top left;
+}
+
+.robot-inner .selectTab h6{
+    font-size: 0.853rem;
+    color: rgb(255, 255, 255);
+    color:#000;
+    line-height: 1.28rem;
+    text-align: center;
+    padding: 0.32rem 0.427rem 0.213rem 0.64rem;
+    margin: 0px;
+    border-radius: 0px;
+    border-bottom: 1px solid #3672a8;
+    background:none;
+    font-family: ".HelveticaNeueLTStd-Thin";
+    letter-spacing: 1px;
+}
+
+.robot-inner .selectTab h6:last-child{
+	border-bottom: none;
+}
+
+/* 机器人评论卡 初始 容器 （评星、评价单词、自定义输入内容） 样式 */
+.robot-inner div.commentTextMap{
+    max-width: 84.91%;
+    min-width:84.91%;
+    min-height: 160px;
+    padding:0;
+    background: none;
+    border-radius: 5px;
+    font-size: 0.853rem;
+}
+
+.robot-inner div.commentTextMap>div{
+	width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    font-size: 0.853rem;
+}
+
+.robot-inner div.commentTextMap p.commentTitle{
+	font-size: 0.75rem;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #3672a8 100%;
+    margin-bottom: 4px;
+}
+
+.robot-inner div.commentTextMap p.commentTitle span{
+	opacity:0;
+}
+
+div.commentTextMap ul{
+    list-style: none;
+    width: 100%;
+    /* height: 50px; */
+    display: flex;
+    justify-content: space-around;
+    background: #3672a8;
+    padding: 4% 15%;
+    
+}
+div.commentTextMap ul li{
+	width:15%;	
+	
+	opacity:0;
+}
+
+div.commentTextMap ul li img{
+	width:70%;
+}
+
+div.commentTextMap .inputModule{
+    width: 100%;
+    height: auto;
+    color: #000;
+    margin-top: 4px;
+}
+
+.robot-inner .commentSelect{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    border: 1px solid #3672a8;
+}
+
+.robot-inner .commentSelect p{
+    padding: 3px;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    background: #3672a8;
+}
+
+.robot-inner .commentSelect p:last-child {
+    border: none;
+    margin: 0;
+}
+
+.robot-inner .user-text{
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    padding: 4%;
+    /* margin: 0 auto 4% auto; */
+    color: #ccc;
+    opacity: 0;
+    border-radius: 5px;
+    background: #1d6096;
+    border: 0.2rem solid #326fab;
+    margin-top: 4px;
+}
+
+/* 用户message消息框 */
+.people-firev{
+	width:100%;
+	height:auto;
+	min-height: 34px;
+}
+.people-firev:after{
+	content: "\0020";
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+.people-inner{
+    min-height: 34px;
+	opacity:0;
+	width: 100%;
+    float: right;
+    display: flex;
+    justify-content: flex-end;
+     -moz-transition: all 1s ease-in;
+    -webkit-transition: all 1s ease-in;
+    -o-transition: all 1s ease-in;
+    transition: all 1s ease-in;
+}
+
+.people-inner .messageDiv{
+	width:91.2%;
+	display:none;
+	transform-origin:right 0.853rem
+}
+
+.masBg1{
+    width: 0.53rem;
+    height: 0.53rem;
+    background: url(../../images/thirdimg/messageSan1.png) no-repeat top left;
+    margin-top: 0.853rem;
+    margin-left: 0px;
+    background-size: 8px 8px;
+    float:right;
+    
+    position: absolute;
+    top: 0;
+    right: -0.5rem;
+    margin-top: 0;
+}
+
+.people-inner p.userSpText {
+    max-width: 84.91%;
+    float: right;
+    margin: 0.853rem 0 0px 0px;
+    background: #C0BFD7 100%;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    /* margin-right: 8px; */
+    padding: 0.427rem 0.48rem 0.427rem 0.48rem;
+    padding: 0.533rem 0.533rem 0.427rem 0.533rem;
+    font-size: 0.853rem;
+    color: #000;
+    letter-spacing:1px;
+    position:relative;
+    margin-right:0.53rem;
+    
+    font-family: '.Linotype-DINNextLTPro-Regular';
+    font-family: '.HelveticaNeueLTStd-Regular';
+    font-family: '.HelveticaNeueLTStd-Light';
+    font-family: ".HelveticaNeueLTStd-MdP4";
+    font-family: ".HelveticaNeueLTStd-Roman";
+    font-family: '.DINNextW1G-Light';
+    font-family: '.HelveticaNeueLTStd-Thin';
+}
+
+span.userTextSpan {
+    opacity: 0;
+}
+
+.people-inner p.userChatIcon {
+    float: left;
+    width: 8.88%;
+    background: url(../../images/thirdimg/BitmapCopy6.png) no-repeat top center;
+    background-size: 100% auto;
+}
+
+#chatUserRadioMessage{
+	background: url(../../images/thirdimg/radio.png) no-repeat 10px center;background-size: 0.64rem;background-color: #c0bfd7;
+}
+#chatUserRadioMessage #userRadioSpan{
+	opacity:0;
+	color:#c0bfd7;
+}
+
+.fadein{
+	opacity:1;
+	transform: scale(1);
+}
+
+
+.animatedd {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+@keyframes myself {
+    0% {
+        height:0%;
+
+    }
+    0%, 30% {
+    	height:0%;
+
+    	opacity: 0.3;
+    }
+    30% {
+    	height:0%;
+
+    	opacity: 0.4;
+    }
+    60% {
+    	height:54%;
+
+    	opacity: 0.5;
+    }
+    100% {
+    	height:57.054%;
+
+    	opacity: 1;
+    }
+    
+}
+
+@keyframes myselfUp {
+    0% {
+    	height:57.054%;
+        opacity:1;
+    }
+    0%, 30% {
+    	height:57.054%;
+    	opacity:1;
+    }
+    30% {
+    	height:57.054%;
+    	opacity:1;
+    }
+    60% {
+    	height:4%;
+    	opacity:1;
+    }
+    100% {
+    	height:0%;
+    	opacity: 1;
+    }
+    
+}
+
+.myself {
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    -webkit-animation-name: myself;
+    animation-name: myself
+}
+
+.myselfUp {
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    -webkit-animation-name: myselfUp;
+    animation-name: myselfUp
+}
+
+/* 各个分辨率下 media媒介查询 */
+
+@media screen and (max-width: 1920px) {
+	.robot-inner p.spText video{
+		width: 100%;  
+		opacity:0;   
+		height: 200px; 
+		border-radius: 5px;
+	}
+}
+
+@media screen and (max-width: 1367px) {
+	.robot-inner p.spText video{
+		width: 100%;  
+		opacity:0;   
+		height: 143px; 
+		border-radius: 5px;
+	}
+}

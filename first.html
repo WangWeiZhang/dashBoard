@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>first</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="user-scalable=no"/>
+<link href="css/first/first.css" rel="stylesheet" type="text/css" />
+<link href="css/first/first_main.css" rel="stylesheet" type="text/css" />
+<link href="css/first/odometer-theme-default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/setting_html.js"></script>
+<script type="text/javascript" src="js/d3/d3.js"></script>
+<script type="text/javascript" src="js/first/map.js"></script>
+<script type="text/javascript" src="js/jquery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/first/first.js"></script>
+<script type="text/javascript" src="js/first/dchart.js"></script>
+<script type="text/javascript" src="js/first/transfer.js"></script>
+<script type="text/javascript" src="js/echart/echarts.js"></script>
+<script type="text/javascript" src="js/first/underscore-min.js"></script>
+<script type="text/javascript" src="js/first/fanzhuan.js"></script>
+<script> odometerOptions = { sp_divsp_divauto: true }; </script>
+<script type="text/javascript" src="js/first/odometer.js"></script>
+
+<script type="text/javascript">
+		$(document).ready(function(){
+			var config = {
+					"basePath" : "http://xiaole.lenovo.com/dashBoard"
+			};
+			map.register(config);
+			transfer.register(config);
+			first.register(config);
+			//animate.register();
+		});
+	</script>
+</head>
+	<body>
+		<div class="container">
+			<!--隐藏域 实现点击不同标签传递不同参数  获取不同接口的数据-->
+			<input type="hidden" value="0" id="dataType"> 
+			
+			<!-- Tbody列表特效的隐藏域 -->
+			<input type="hidden" value="1" id="num_fanzhuan">
+			
+			<!-- 模糊效果的隐藏域 -->
+			<input type="hidden" value="1" id="Tbody_list_hidden">
+			<!--头部组件-->
+			<div class="con_title_bg">
+				<div class="header_title">
+				
+					<p>Lenovo Intelligent Services</p>
+					<p>UTC +8</p>
+				</div>
+		
+				<ul class="header_nav">
+					<li class="inactive"><a href="javascript:first.change_type(2)">24 Hours</a></li>
+					<li class="active"><a href="javascript:first.change_type(0)">7 Days</a></li>
+					<li class="inactive"><a href="javascript:first.change_type(1)">13 Weeks</a></li>
+					<li class="inactive"><a href="javascript:first.change_type(3)">12 Months</a></li>
+				</ul>
+			</div>
+			
+			<!--第一行-->
+			<div id="first_row" class="first_row" >
+				<div id="first_row_left"  class="col_m1">
+					<div id="zoushang">
+						<div class="zuoshang_child col_m2 bor_bottom bor_left bor_top" >
+							<div class="caption bor_not " id="left_lashen">
+								<small>Current Visits</small>
+								<h3 id="visits_current">
+								  <div class="odometer" id="odometer1" style="display:none"></div>
+								</h3>
+							</div>
+						</div>
+						<div class="zuoshang_child zuoshang_border_sp col_m2 bor_left bor_bottom bor_top bor_right" >
+							<div class="caption bor_not " id="right_lashen">
+								<small id="visits_title">Visits last 7 days</small>
+								<h3 id="visits_week">
+								 <div class="odometer" id="odometer2" style="display:none"></div>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div id="zuoxia" class="col_m3 report_area">
+						<div class="zuoxia_child1" id="sp_div">
+							
+						</div>
+						
+						<div class="zuoxia_child2" id="report_area">
+							
+						</div>
+					</div>
+				</div>
+				
+				<div id="first_row_center" class="col_m2 bor map" id="map" >
+					<div class="tip" style="position:absolute;top:0;">
+							<div style="height: 36%;" class="tip_content_title" id="contry_name"></div>
+							<div style="height: 35%;" class="tip_content_num">
+								<div class="tip_content_l" id="m_users" style="padding-left:7.7%"></div>
+								<div class="tip_content_l" id="m_visits" style="padding-right:7.7%"></div>
+							</div>
+							<div class="tip_content">
+<!-- 								<div class="scale_tip-content"> -->
+<!-- 									<span  class="tip_content_t" >Users</span> -->
+<!-- 									<span class="tip_content_t" >Visits</span> -->
+<!-- 								</div> -->
+							</div>
+					</div>
+					<div id="abso_num" style="width:100%; height:22.7%; position:absolute;  ">
+						<div class="totalVisitsUsers map_visits">
+							<div>
+								<small>Total  Visits</small>
+								<h3 id="visits_total" class="pub_h3">
+								<div class="odometer" id="odometer3" style="display:none"></div>
+								</h3>
+							</div>
+			
+						</div>
+						<div class="totalVisitsUsers map_users"  >
+							<div>
+								<small>Total Users</small>
+								<h3 id="total_users" class="pub_h3">
+								<div class="odometer" id="odometer4" style="display:none"></div>
+								</h3>
+							</div>
+			
+						</div>
+					</div>
+					<div class="legend">
+						<span class='legendTitle'>Total Visits Count</span>
+						<div class="legend_col">
+							<div style="display: table-row">
+								<div style="display:table-cell;background-color:#355274"></div>
+								<div style="display:table-cell;background-color:#3672A8"></div>
+								<div style="display:table-cell;background-color:#10A6FF"></div>
+								<div style="display:table-cell;background-color:#29CEE2"></div>
+								<div style="display:table-cell;background-color:#06B08C"></div>
+								<div style="display:table-cell;background-color:#6FFF69"></div>
+								<div style="display:table-cell;background-color:#F4C8A7"></div>
+							</div>
+		
+						</div>
+						<div class="legend_tip">
+							<div class="legend_tip_text">
+								<div style="float:left; width:42.33%;"><div id="legend_first"></div></div>
+								<div style="float:left; width:24.33%;"><div id="legend_center"></div></div>
+								<div style="float:left; width:33.33%;display: flex;justify-content: flex-end;"><div id="legend_last"></div></div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="map_chart" style="width:100%; height:100%">
+						
+					</div>
+				</div>
+				
+				<!--上面注释掉的是原版 下面开发的是改进 7Days-->
+				<div id="first_row_right" class="col_m1">
+					<div class="first_row_right_child1 col_m3 bor">
+						<div class="col_m2" style="width: 50%; height:74.064%; display: flex; justify-content: center;float:left; align-items: center;">
+							<div class="caption bor_not" >
+								<small id="new_user_title">New users last 7 days</small>
+								<br>
+								<h3 id="new_weeks">
+								<div class="odometer" id="odometer5" style="display:none"></div>
+								</h3>
+							</div>
+						</div>
+						<div class="col_m2" style="width:50%;height:100%; float:left; position:relative;    border-left: 0.0533rem solid #383744;">
+							<div class="padding_ap1">
+							</div>
+							
+						</div>
+					</div>
+					<div class="first_row_right_child2 col_m3 bor">
+						<table class="table">
+							<div class="table_caption">
+								<div id="caption_first"><span style="padding-right:20%">Region</span></div>
+								<div id="caption_second"><span style="padding-left: 26%;">Total Users</span></div>
+								<div id="caption_third"style="justify-content: center;"><span>New Users Today</span></div>
+							</div>
+							
+								<div id="tbody">
+							
+								</div>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+						
+			<!--第二行-->
+			<div id="second_row" class="second_row">
+				<div id="second_row_one" class="col_m1 bor">
+					<div class="title_usually_child1 pie_chart_top">
+						<p>Customer Satisfaction</p>
+						<span id="satisfication_span"></span>
+					</div>
+					<div class="second_row_one_child2 pie_chart_star">
+						<div class="chart_star" id="star_con">
+							<span id="add_star" class="add-star"></span>
+							<span id="del_star" class="del-star"></span>
+						</div>
+						<div id="star_score" class="pie_chart_sort"></div>
+					</div>
+				
+					<div class="second_row_one_child3 pie_chart_pic"></div>
+		
+				</div>
+				<div id="second_row_two" class="col_m1 bor">
+					<!--<div class="feedback_chart_title">
+		                <div class="feedback_chart_satisfication">Key comments</div>
+		                <div class="feedback_chart_datasource">DataSource:July3-July9</div>
+		            </div>-->
+					<div class="title_usually_child1 pie_chart_top">
+						<p>Key Comments</p>
+						<span id="comments_span"></span>
+					</div>
+					<div class="second_row_two_child2 feedback_chart_content">
+					<!-- 	<span class="feedback_chart_content_div1">Helpful</span>
+						<span class="feedback_chart_content_div2">dont need to</span>
+						<span class="feedback_chart_content_div3">Quick</span>
+						<span class="feedback_chart_content_div4">Quick response</span>
+						<span class="feedback_chart_content_div5">really like it</span>
+						<span class="feedback_chart_content_div6">Helpful</span> -->
+						<div id="div1">
+						
+						</div>
+					</div>
+				</div>
+				<div id="second_row_three" class="col_m1 bor">
+					<div class="title_usually_child1 pie_chart_top">
+						<p>Transfer to Live Agent</p>
+						<span id="transfer_span"></span>
+					</div>
+					<div class="second_row_three_child2 trans_row1">
+						<div class="bor_right bor_bottom trans_col2" style="border-right:1px solid #343340" >
+							<div class="trans_col2_h" >
+								<div class="trans_col2_h_new1">
+									<span id="left_num" class="num_span" >
+									</span>
+									<span id="left_rate" class="rate_span rate_second_span">
+									</span>
+									<div class="trans_col2_small" >Transferred Cases</div>
+								</div>
+							</div>
+		
+						</div>
+						<div class="bor_bottom trans_col2">
+							<div class="trans_col2_h">
+								<div class="trans_col2_h_new1">
+									<span class="num_span" id="right_num"></span>
+									<span class="rate_span rate_second_span" id="right_rate" ></span>
+									<div class="trans_col2_small" style="padding-left:0.2rem">Transferred Rate</div>
+								</div>
+							</div>
+							
+						</div>
+						<div>
+		
+						</div>
+					</div>
+					<div class="second_row_three_child3 trans_row2" >
+						<div class="echarts_line_top" >
+							<p style="color:">Max Value</p>
+							<span  id="count"></span>
+						</div>
+						<div class="echarts_line_top" style="padding-right:0.7rem; text-align:right;">
+							<p>Max Rate</p>
+							<span  id="rate"></span>
+						</div>
+						<div style="padding-left: 0.5rem; padding-right: 0.5rem; padding-top:0.3rem;clear:both; width: 100%;height: 80%" id="serviceTransfer">
+		
+						</div>
+					</div>
+				</div>
+				<div id="second_row_four" class="col_m1">
+					<div class="title_usually_child1 pie_chart_top">
+						<p>Average Effort</p>
+						<span id="average_span"></span>
+					</div>
+					<div class="second_row_four_child2 average_chart_content">
+						<div class="second_row_four_child2_child1 average_chart_handing">
+							<div class="average_handing_num">
+								<div class="average_handing_score" id="average_handing_score">
+								<div class="odometer" id="odometer6" style="display:none"></div>
+								 <div id="average_handing_score_span"style="display:none"><span>'</span></div>
+								<div class="odometer" id="odometer66" style="display:none"></div> 
+								</div>
+								<div id="handing_trend" class="average_handing_trend"></div>
+								<div class="average_handing_eg">Handling Time</div>
+							</div>
+							<div class="average_handing_chart" id="contentDiv"></div>
+						</div>
+						<div class="second_row_four_child2_child2 average_chart_round">
+							<div class="average_round_num">
+								<div class="average_round_num_box">
+									<div class="average_round_score">
+									<div class="odometer" id="odometer7" style="display:none"></div>
+									</div>
+									<div id="round_trend" class="average_round_trend"></div>
+								</div>	
+								<div class="average_round_eg">Round Of Dialogue</div>
+							</div>
+							<div class="average_round_chart pie_chart_top" id="contentDiv1"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+			
+		</div>
+	</body>
+</html>

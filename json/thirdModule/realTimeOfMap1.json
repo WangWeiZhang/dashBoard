@@ -1,0 +1,105 @@
+{
+    "data": {
+        "max": 296,
+        "min": 266,
+        "userHeat": [
+            {
+                "country": "Australia",
+                "countryCode": "JP",
+                "userNum": "230"
+            }
+        ],
+        "accessChannel":"facebook",
+		"country":"Australia",
+        "message": [
+        	{
+                "type": "chatbot",
+                "content": [
+                    {
+                        "payload": {
+                            "text": "Okay, let me help you with this. Here are the solutions:",
+                            "title": "",
+                            "url": ""
+                        },
+                        "message_type": "text"
+                    }
+                ]
+            },
+            {
+            	"type": "user",
+                "content": {
+                	"text":"Can you help me? who are you?"
+                }
+               
+            },
+            {
+                "type": "chatbot",
+                "content": [
+                    {
+                        "payload": {
+                            "text": "Okay, let me help you with this. Here are the solutions:",
+                            "title": "",
+                            "url": ""
+                        },
+                        "message_type": "text"
+                    },
+                    {
+                        "payload": {
+                            "text": "Your phone notifies you if an Android software update is available.\nTo manually check for updates, go to Settings > About phone > System updates.\nIf an upgrade is available, follow the onscreen instructions to install it.\nYou can't downgrade to a previous software version after installing an update.",
+                            "title": "Get Android software updates",
+                            "url": "https://help.motorola.com/hc/5000/70/global/en-us/index.html?t=jcb1208201715#j20"
+                        },
+                        "message_type": "text"
+                    },
+                    {
+                        "payload": {
+                            "selections": [
+                                {
+                                    "action_response": {
+                                        "action_parameters": {
+                                            "value": "Resolved",
+                                            "turn_id": "1512358141801"
+                                        },
+                                        "action_response_type": 1
+                                    },
+                                    "title": "Resolved"
+                                },
+                                {
+                                    "action_response": {
+                                        "action_parameters": {
+                                            "value": "LiveChat",
+                                            "turn_id": "1512358141801"
+                                        },
+                                        "action_response_type": 1
+                                    },
+                                    "title": "LiveChat"
+                                }
+                            ],
+                            "text": null
+                        },
+                        "message_type": "selection"
+                    }
+                ]
+            },
+            {
+            	"type": "user",
+                "content": {
+                	"text":"Can you help me? who are you?"
+                }
+               
+            },
+            {
+            	"type": "user",
+                "content": {
+                	"text":"Can you help me? who are you?"
+                }
+               
+            }
+        ]
+    },
+    "error_code": "000000",
+    "msg": "",
+    "status": "error"
+    
+    
+}

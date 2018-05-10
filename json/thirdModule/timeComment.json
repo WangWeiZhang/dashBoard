@@ -1,0 +1,105 @@
+{
+	"data":[
+		{
+			"data":[
+				{
+					"channelAddress":"pc.png",
+					"commentData":"7pm Dec21",
+					"commentLengthType":1,
+					"pictureAddress":"images/xxx.png",
+					"textComment":"sdafad",
+					"userCountry":"CN",
+					"userName":"unknown"
+				},
+				{
+					"channelAddress":"facebook.png",
+					"commentData":"6pm Dec18",
+					"commentLengthType":1,
+					"pictureAddress":"images/xxx.png",
+					"textComment":"Great",
+					"userCountry":"US",
+					"userName":"Man Gu"
+				}
+			],
+			"type":"0"
+		},
+		{
+			"data":[
+				{
+					"channelAddress":"pc.png",
+					"commentData":"4pm Dec18",
+					"commentLengthType":1,
+					"pictureAddress":"images/xxx.png",
+					"textComment":"smart\n",
+					"userCountry":"CN",
+					"userName":"unknown"
+				},
+				{
+					"channelAddress":"facebook.png",
+					"commentData":"2pm Dec18",
+					"commentLengthType":1,
+					"pictureAddress":"images/xxx.png",
+					"textComment":"Did not solve problem",
+					"userCountry":"US",
+					"userName":"Mick Richards"
+				}
+			],
+			"type":"0"
+		},
+		{
+			"data":[
+				{
+					"channelAddress":"pc.png",
+					"commentData":"4pm Dec15",
+					"commentLengthType":1,
+					"pictureAddress":"images/xxx.png",
+					"textComment":"I like you very much I like you very much I like you very much I like you very much I like you very much I like you very much I like you very much I like you very much",
+					"userCountry":"CN",
+					"userName":"unknown"
+				},
+				{
+					"channelAddress":"pc.png",
+					"commentData":"4pm Dec15",
+					"commentLengthType":1,
+					"pictureAddress":"images/xxx.png",
+					"textComment":"helpful  ",
+					"userCountry":"CN",
+					"userName":"unknown"
+				}
+			],
+			"type":"0"
+		},
+		{
+			"data":[
+				{
+					"channelAddress":"facebook.png",
+					"commentData":"1pm Dec20",
+					"commentLengthType":0,
+					"pictureAddress":"images/xxx.png",
+					"textComment":"I FEEL ASHAMED OF THE MOTOROLA BRAND, GIVEN THAT I ACQUIRED A TELEPHONE IN A BEST BUY STORE OF NEW YORK MOTO G4 WHICH DID NOT WALK FROM A BEGINNING, AND I HAD NO CHANCE TO CHANGE BEING ON A VACATION TRAVEL, ALREADY IN MY CITY ARGENTINA. THE CORRESPONDING CLAIMS WHICH WAS HEARD AND SOLVED SINCE THEY SENT ME A \"SUPPOSED NEW MOTORBIKE G4\" AND HERE BEGAN AGAIN TO HAVE PROBLEMS, THE SMARPHONE THAT SENT ME BACK, NOT ONLY NOT GOING WELL, THE AUDIOS ARE CUT, AND THE OFF, BUT I WAS BLOCKED WITH PATRON AND ALSO WITH A REGISTERED MAIL THAT IS NOT MINE WHEN I WANTED TO CONFIGURE, WITH WHICH I REALIZED THAT IT WAS A USED PHONE THAT THEY SENT ME!\nIT IS A LACK OF ETHICS WHEN I BUY A NEW SMARPHONE, THAT SEND ME ONE USED, MOTOROLA FOR ME IS NOT RECOMMENDED, DESPITE GIVING YOU AN OPPORTUNITY AND CHANGE MY FAVORITE MARK SAMSUNG, FOR YOU, I FEEL THAT I TAKEN THE HAIR, MY TELEPHONE CONTINUES IN GUARANTEE, BUT I WAS MISSED TIME AND MONEY BY A CELLULAR THAT DOES NOT GO WELL FOR THE SECOND TIME.\nSHAME GIVES ME TO RETURN TO CLAIM, LACK OF ETHICS AND MORAL FOR ITS CLIENTS.\n",
+					"userCountry":"ES",
+					"userName":"Mane Garzia"
+				}
+			],
+			"type":"1"
+		},
+		{
+			"data":[
+				{
+					"channelAddress":"facebook.png",
+					"commentData":"1pm Dec20",
+					"commentLengthType":0,
+					"pictureAddress":"images/xxx.png",
+					"textComment":"I FEEL ASHAMED OF THE MOTOROLA BRAND, GIVEN THAT I ACQUIRED A TELEPHONE IN A BEST BUY STORE OF NEW YORK MOTO G4 WHICH DID NOT WALK FROM A BEGINNING, AND I HAD NO CHANCE TO CHANGE BEING ON A VACATION TRAVEL, ALREADY IN MY CITY ARGENTINA. THE CORRESPONDING CLAIMS WHICH WAS HEARD AND SOLVED SINCE THEY SENT ME A \"SUPPOSED NEW MOTORBIKE G4\" AND HERE BEGAN AGAIN TO HAVE PROBLEMS, THE SMARPHONE THAT SENT ME BACK, NOT ONLY NOT GOING WELL, THE AUDIOS ARE CUT, AND THE OFF, BUT I WAS BLOCKED WITH PATRON AND ALSO WITH A REGISTERED MAIL THAT IS NOT MINE WHEN I WANTED TO CONFIGURE, WITH WHICH I REALIZED THAT IT WAS A USED PHONE THAT THEY SENT ME!\nIT IS A LACK OF ETHICS WHEN I BUY A NEW SMARPHONE, THAT SEND ME ONE USED, MOTOROLA FOR ME IS NOT RECOMMENDED, DESPITE GIVING YOU AN OPPORTUNITY AND CHANGE MY FAVORITE MARK SAMSUNG, FOR YOU, I FEEL THAT I TAKEN THE HAIR, MY TELEPHONE CONTINUES IN GUARANTEE, BUT I WAS MISSED TIME AND MONEY BY A CELLULAR THAT DOES NOT GO WELL FOR THE SECOND TIME.\nSHAME GIVES ME TO RETURN TO CLAIM, LACK OF ETHICS AND MORAL FOR ITS CLIENTS.\n",
+					"userCountry":"ES",
+					"userName":"Mane Garzia"
+				}
+			],
+			"type":"1"
+		}
+	],
+	"error_code":"000000",
+	"flipSingal":1513855412383,
+	"msg":"",
+	"status":"success"
+}

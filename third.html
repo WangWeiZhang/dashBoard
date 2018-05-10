@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>third</title>
+    <!-- setting_html 设置根元素的这个js文件需要提前加载 不然会导致页面抖动 -->
+    <script type="text/javascript" src="js/setting_html.js"></script>
+    <link href="css/third/third.css" rel="stylesheet" type="text/css" />
+    <link href="css/third/map.css" rel="stylesheet" type="text/css" />
+	<link href="css/third/odometer-theme-default.css" rel="stylesheet" type="text/css" />
+	<link href="css/third/animate.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.transit.js"></script>
+	<script type="text/javascript" src="js/d3/d3.js"></script>
+	<script type="text/javascript" src="js/echarts.js"></script>
+	<script type="text/javascript" src="js/first/underscore-min.js"></script>
+	<script type="text/javascript" src="js/third/thirdMap.js"></script>
+	<script type="text/javascript" src="js/third/third.js"></script>
+	<script type="text/javascript" src="js/third/thirdcharts.js"></script>
+	<script type="text/javascript" src="js/first/odometer.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var config = {
+					"basePath" : "http://xiaole.lenovo.com/dashBoard"
+			};
+			third.register(config);
+			thirdMap.register(config);
+		});
+	</script>
+</head>
+<body>
+	<div id="out_box">
+        <!--头部组件开始-->
+        <div id="header">
+            <div class="header_title"><p>Lenovo Intelligent Services</p><p>UTC +8</p></div>
+        </div>
+        <div id="main">
+        	<div class="content map ">
+        		<div  class="content-top">
+        			<div class="user-visit-curent-nums-list">
+        				<div class="nowTime">
+        					<small class="smalltitle">Today</small>
+        					<p id="todayData" ></p>
+        				</div>
+        				<div class="userNums">
+        					<ul>
+        						<li style="margin-right: 81px;">
+        							<small class="smalltitle">Visits Today</small>
+        							<p id="visitsToday" class="odometer"></p>
+        						</li>
+        						<li style="margin-right: 81px;">
+        							<small class="smalltitle">Users Today</small>
+        							<p id="usersToday" class="odometer" ></p>
+        						</li>
+        						<li>
+        							<small class="smalltitle">Curent Visits</small>
+        							<p id="curentVisits" class="odometer"></p>
+        						</li>
+        					</ul>
+        				</div>
+        			</div>
+        			<div class="content-top-map">
+        			
+	        				<div class="dialog-box">
+	        					<div class="dialog-box-title">
+	        						<p id="dialogCountry"></p>
+	        						<h3 id="dialogDate">NOW</h3>
+	        						<p id="dialogChannel"></p>
+	        						<div class="maplineFille"></div>
+	        					</div>
+	        					<div class="dialog-text-box ">
+	        						<div class="mapMessageInner">
+	        						</div>
+	        					</div>
+	        				</div>
+        				<div class="legend">
+        					<span class='legendTitle'>Total Visits Count</span>
+							<div class="legend_col">
+								<div class="boxboxbox" style="display: table-row">
+									<div style="display:table-cell;background-color:#355274"></div>
+									<div style="display:table-cell;background-color:#3672A8"></div>
+									<div style="display:table-cell;background-color:#10A6FF"></div>
+									<div style="display:table-cell;background-color:#29CEE2"></div>
+									<div style="display:table-cell;background-color:#06B08C"></div>
+									<div style="display:table-cell;background-color:#6FFF69"></div>
+									<div style="display:table-cell;background-color:#F4C8A7"></div>
+								</div>
+							</div>
+							<div class="legend_tip">
+								<div class="legend_tip_text">
+									<div style="float:left; width:42.33%;"><div id="legend_first"></div></div>
+									<div style="float:left; width:24.33%;"><div id="legend_center"></div></div>
+									<div style="float:left; width:33.33%;display: flex;justify-content: flex-end;"><div id="legend_last"></div></div>
+								</div>
+							</div>
+						</div>
+						<div id="map_chart" style="width:100%; height:100%">
+						</div>
+        			</div>
+        		</div>
+        		<div id="echarts-bar" class="echarts-bar">
+        		</div>
+        		<div class="content-bottom">
+        			<div class="commentList">
+        				<div class="commentList-inner">
+        				</div>
+        			</div>
+        		</div>
+        		<div class="content-right">
+        			<h3 class="selected-title">Selected Conversation</h3>
+       				<div class="dialog-box-title-selected">
+  						<p id="selectMessageCountry"></p>
+  						<h3 id="selectMessageDate"></h3>
+  						<p id="selectMessageChannel"></p>
+       				</div>
+       				<div class="dialog-text-box-selected">
+       					<div class="messageInner">
+       					</div>
+   					</div>
+   					<div class="lineFille"></div>
+        		</div>
+        	</div>
+        </div>
+    </div>
+</body>
+</html>

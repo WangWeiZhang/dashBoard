@@ -1,0 +1,76 @@
+{
+	"data":{
+		"accessChannel":"Web",
+		"max":9798,
+		"message":[
+			{
+				"content":[
+					{
+						"message_type":"radio",
+						"payload":{
+							"text":"Your evaluation will make me better"
+						}
+					}
+				],
+				"type":"user"
+			},
+			{
+				"content":[
+					{
+						"message_type":"evaluation",
+						"payload":{
+							"text":"Your evaluation will make me better"
+						}
+					}
+				],
+				"type":"chatbot"
+			},
+			{
+				"content":[
+					{
+						"message_type":"evaluate-score",
+						"payload":{
+							"text":"20"
+						}
+					},
+					{
+						"message_type":"evaluate-score",
+						"payload":{
+							"text":"60"
+						}
+					},{
+						"message_type":"evaluate-words",
+						"payload":{
+							"text":"helpful"
+						}
+					},{
+						"message_type":"evaluate-words",
+						"payload":{
+							"text":"Very Good!!!"
+						}
+					},
+					{
+						"message_type":"evaluate-input",
+						"payload":{
+							"text":"It's a very good!"
+						}
+					}
+					
+				],
+				"type":"user"
+			}
+		],
+		"min":1,
+		"userHeat":[
+			{
+				"country":"China",
+				"countryCode":"CN",
+				"userNum":"5351"
+			}
+		]
+	},
+	"error_code":"000000",
+	"flag":"third",
+	"msg":"",
+	"status":"success"
+}
